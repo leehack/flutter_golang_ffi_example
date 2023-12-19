@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - native_add (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - native_add (from `.symlinks/plugins/native_add/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  native_add:
+    :path: ".symlinks/plugins/native_add/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  native_add: 41806a935e710f05959e348eedb9de032ce14553
+
+PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+
+COCOAPODS: 1.14.3
