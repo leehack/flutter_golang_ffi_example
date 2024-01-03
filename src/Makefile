@@ -80,7 +80,7 @@ ios: ios-x86_64-sim ios-arm64-sim ios-arm64
 	rm -rf ../ios/${LIB_NAME}.xcframework
 	mv ${LIB_NAME}.xcframework ../ios/
 
-	macos:
+macos:
 	CGO_ENABLED=1 \
 	GOOS=darwin \
 	GOARCH=arm64 \
