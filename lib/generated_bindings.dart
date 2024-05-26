@@ -39,6 +39,44 @@ class NativeLibrary {
   late final _sumPtr =
       _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int, ffi.Int)>>('sum');
   late final _sum = _sumPtr.asFunction<int Function(int, int)>();
+
+  ffi.Pointer<ffi.Char> test_bytes(
+    ffi.Pointer<ffi.Void> bt,
+    int size,
+  ) {
+    return _test_bytes(
+      bt,
+      size,
+    );
+  }
+
+  late final _test_bytesPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Char> Function(
+              ffi.Pointer<ffi.Void>, ffi.Int)>>('test_bytes');
+  late final _test_bytes = _test_bytesPtr
+      .asFunction<ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Void>, int)>();
+
+  Array test2_bytes(
+    Array bt,
+  ) {
+    return _test2_bytes(
+      bt,
+    );
+  }
+
+  late final _test2_bytesPtr =
+      _lookup<ffi.NativeFunction<Array Function(Array)>>('test2_bytes');
+  late final _test2_bytes = _test2_bytesPtr.asFunction<Array Function(Array)>();
+
+  void enforce_binding() {
+    return _enforce_binding();
+  }
+
+  late final _enforce_bindingPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>('enforce_binding');
+  late final _enforce_binding =
+      _enforce_bindingPtr.asFunction<void Function()>();
 }
 
 /// mbstate_t is an opaque object to keep conversion state, during multibyte
@@ -147,6 +185,14 @@ final class _GoString_ extends ffi.Struct {
 
 typedef ptrdiff_t = __darwin_ptrdiff_t;
 typedef __darwin_ptrdiff_t = ffi.Long;
+typedef Dart__darwin_ptrdiff_t = int;
+
+final class Array extends ffi.Struct {
+  @ffi.Int()
+  external int len;
+
+  external ffi.Pointer<ffi.Int> data;
+}
 
 final class GoInterface extends ffi.Struct {
   external ffi.Pointer<ffi.Void> t;
@@ -166,6 +212,9 @@ final class GoSlice extends ffi.Struct {
 
 typedef GoInt = GoInt64;
 typedef GoInt64 = ffi.LongLong;
+typedef DartGoInt64 = int;
+
+const int __has_safe_buffers = 1;
 
 const int __DARWIN_ONLY_64_BIT_INO_T = 1;
 
