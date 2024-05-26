@@ -14,11 +14,14 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late int sumResult;
+  late List<int> test;
 
   @override
   void initState() {
     super.initState();
     sumResult = native_add.sum(1, 2);
+
+    test = native_add.testByte([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   }
 
   @override
@@ -43,7 +46,7 @@ class _MyAppState extends State<MyApp> {
                 ),
                 spacerSmall,
                 Text(
-                  'sum(1, 2) = $sumResult',
+                  test.toString(),
                   style: textStyle,
                   textAlign: TextAlign.center,
                 ),
